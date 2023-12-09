@@ -16,6 +16,35 @@
   Once you've implemented the logic, test your code by running
 */
 
-class Calculator {}
+class Calculator {
+  constructor() {
+    this.result = 0;
+  }
+  add(n) {
+    this.result += n;
+  }
+  subtract(n) {
+    this.result -= n;
+  }
+  multiply(n) {
+    this.result *= n;
+  }
+  divide(n) {
+    if (n === 0) throw ErrorEvent;
+    this.result /= n;
+  }
+  clear() {
+    this.result = 0;
+  }
+  getResult() {
+    return this.result;
+  }
+  calculate(s) {
+    let n = s.split(" ").join("");
+    let z = n.indexOf("/");
+    if (z > 0 && n[z + 1] === "0") throw ErrorEvent;
+    else this.result = eval(s);
+  }
+}
 
 module.exports = Calculator;
